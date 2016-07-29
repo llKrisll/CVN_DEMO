@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+<head>
+	<title th:text="#{label.pages.home.title}"></title>
+</head>
+<body>
+
+<div layout:fragment="content">         
+     <p sec:authorize="!hasAuthority('WRITE_PRIVILEGE')" th:text="#{message.unauth}">unauth</p>   
+        
+     <h1 sec:authorize="hasAuthority('WRITE_PRIVILEGE')" th:text="#{label.pages.admin.message}">admin</h1>
+</div>
+</body>
+</html>

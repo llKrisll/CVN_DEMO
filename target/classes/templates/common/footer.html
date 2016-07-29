@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" 
+layout:decorator="layout">
+<head>
+	<title>Footer</title>
+</head>
+<body>
+	<div layout:fragment="footer">
+<!--         <footer> -->
+	        <p class="pull-right" th:if="${g_user}">
+	            Logged in as: <span th:text="${g_user.email}">my email</span>
+	        </p>
+<!--     	</footer> -->
+    </div>
+</body>
+</html>

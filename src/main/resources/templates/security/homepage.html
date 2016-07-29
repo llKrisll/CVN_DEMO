@@ -1,0 +1,28 @@
+<html>
+<head>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/> -->
+<TITLE TH:TEXT="#{LABEL.PAGES.HOME.TITLE}">HOME</TITLE>
+</HEAD>
+<BODY>
+<!-- <NAV CLASS="NAVBAR NAVBAR-DEFAULT"> -->
+<!--   <DIV CLASS="CONTAINER-FLUID"> -->
+<!--     <DIV CLASS="NAVBAR-HEADER"> -->
+<!--       <A CLASS="NAVBAR-BRAND" TH:HREF="@{/HOME.HTML}" TH:TEXT="#{LABEL.PAGES.HOME.TITLE}">HOME</A> -->
+<!--     </DIV> -->
+<!--       <UL CLASS="NAV NAVBAR-NAV NAVBAR-RIGHT"> -->
+<!--         <LI><A TH:HREF="@{/LOGOUT}" TH:TEXT="#{LABEL.PAGES.LOGOUT}">LOGOUT</A> </LI> -->
+<!--       </UL> -->
+<!--     </DIV> -->
+<!-- </NAV> -->
+
+    <div class="container">
+	    <div sec:authorize="hasAuthority('WRITE_PRIVILEGE')" th:text="#{label.pages.user.message}">user</div>
+	
+	    <div sec:authorize="hasAuthority('WRITE_PRIVILEGE')" th:text="#{label.pages.admin.message}"></div>
+	     
+	    <p th:text="${param.user[0]}">user</p>
+	     
+	    <a class="btn btn-default" th:href="@{/admin.html}" th:text="#{label.pages.admin}">admin</a>
+    </div>
+</body>
+</html>

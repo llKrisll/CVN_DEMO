@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" 
+	layout:decorator="layout">
+<head>
+	<title th:text="#{label.pages.home.title}">home</title>
+</head>
+<body>
+<div layout:fragment="content">
+	<div class="container-fluid">
+		<div th:if="${param.message != null}" class="alert alert-info" th:text="${param.message[0]}">message</div>
+		
+		<div><h1>This is the landing page for the admin</h1></div> 
+	    
+	    <div sec:authorize="hasAuthority('READ_PRIVILEGE')">This text is only visible to a user</div>
+	          
+	    <div sec:authorize="hasAuthority('WRITE_PRIVILEGE')"> This text is only visible to an admin</div>
+	    
+	      <a class="btn btn-default" th:href="@{/security/changePassword.html}" th:text="#{message.changePassword}">change password</a>
+	
+	      <a class="btn btn-default" th:href="@{/security/admin.html}" th:text="#{label.pages.admin}">admin</a>
+	  </div>
+ </div>
+</body>
+
+</html>
